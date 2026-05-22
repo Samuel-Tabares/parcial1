@@ -1,5 +1,8 @@
 # clase Producto: guarda nombre y precio, valida el precio, aplica descuentos y calcula el precio final
 class Producto:
+    # el IVA en colombia es del 19%, lo dejamos como constante para no tener un numero suelto
+    IVA = 0.19
+
     def __init__(self, nombre, precio):
         # llamamos al metodo que valida el precio antes de guardarlo
         self._validar_precio(precio)
@@ -23,7 +26,7 @@ class Producto:
         return self.precio - descuento
 
     def calcular_precio_final(self, porcentaje_descuento):
-        # primero se aplica el descuento y despues se le suma el IVA del 19%
+        # primero se aplica el descuento y despues se le suma el IVA
         precio_con_descuento = self.aplicar_descuento(porcentaje_descuento)
-        precio_final = precio_con_descuento * 1.19
+        precio_final = precio_con_descuento * (1 + self.IVA)
         return precio_final
