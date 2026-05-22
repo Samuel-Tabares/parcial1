@@ -45,3 +45,17 @@ Valor   Valido   Resultado esperado
 Pregunta para el administrador sobre la Regla 3
 
 Cuando el precio final tenga decimales, se redondea o se deja con los decimales? Esto importa porque segun la respuesta cambia el resultado esperado de los tests y no se puede comparar bien si no se sabe.
+
+Casos de prueba
+
+```
+ID    Regla  Descripcion                       Precondicion       Datos de entrada            Pasos                            Resultado esperado                 Tipo
+CP1   R1     crear producto con precio valido  no hay producto    nombre=libro precio=5000    crear el producto                el producto queda creado           Positivo
+CP2   R1     crear producto con precio 0       no hay producto    nombre=libro precio=0       intentar crear el producto       sale error, no se crea             Negativo
+CP3   R1     crear producto precio negativo    no hay producto    nombre=libro precio=-100    intentar crear el producto       sale error, no se crea             Negativo
+CP4   R2     aplicar descuento del 20%         producto creado    descuento=20                pedir aplicar el descuento       el descuento se aplica bien        Positivo
+CP5   R2     aplicar descuento del 0%          producto creado    descuento=0                 pedir aplicar el descuento       se acepta y no quita nada          Borde
+CP6   R2     aplicar descuento del 40%         producto creado    descuento=40                pedir aplicar el descuento       se acepta, es el maximo            Borde
+CP7   R2     aplicar descuento del 50%         producto creado    descuento=50                pedir aplicar el descuento       sale error, no se aplica           Negativo
+CP8   R3     calcular precio final con iva     producto creado    precio=10000 descuento=10   pedir el precio final            da 10710 (descuento y luego iva)   Positivo
+```
