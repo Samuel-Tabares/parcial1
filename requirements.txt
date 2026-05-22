@@ -2,3 +2,5 @@
 pytest
 # pytest-cov es para ver el reporte de cobertura
 pytest-cov
+# behave es para correr las pruebas en gherkin (BDD)
+behave
