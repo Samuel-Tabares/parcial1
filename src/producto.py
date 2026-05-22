@@ -1,4 +1,4 @@
-# clase Producto: guarda nombre y precio, valida el precio y aplica descuentos
+# clase Producto: guarda nombre y precio, valida el precio, aplica descuentos y calcula el precio final
 class Producto:
     def __init__(self, nombre, precio):
         # llamamos al metodo que valida el precio antes de guardarlo
@@ -21,3 +21,9 @@ class Producto:
         self._validar_descuento(porcentaje)
         descuento = self.precio * porcentaje / 100
         return self.precio - descuento
+
+    def calcular_precio_final(self, porcentaje_descuento):
+        # primero se aplica el descuento y despues se le suma el IVA del 19%
+        precio_con_descuento = self.aplicar_descuento(porcentaje_descuento)
+        precio_final = precio_con_descuento * 1.19
+        return precio_final
