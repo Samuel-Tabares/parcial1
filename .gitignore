@@ -1,0 +1,8 @@
+# archivos que genera python al correr
+__pycache__/
+
+# carpeta del entorno virtual
+venv/
+
+# archivos del reporte de cobertura
+.coverage

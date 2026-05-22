@@ -1,0 +1,4 @@
+# pytest sirve para correr los tests
+pytest
+# pytest-cov es para ver el reporte de cobertura
+pytest-cov
