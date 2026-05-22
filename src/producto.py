@@ -1,4 +1,4 @@
-# clase Producto, por ahora solo guarda nombre y precio y revisa que el precio sea mayor que cero
+# clase Producto: guarda nombre y precio, valida el precio y aplica descuentos
 class Producto:
     def __init__(self, nombre, precio):
         # llamamos al metodo que valida el precio antes de guardarlo
@@ -10,3 +10,11 @@ class Producto:
         # si el precio no es mayor que cero no dejamos crear el producto
         if precio <= 0:
             raise ValueError("el precio debe ser mayor que cero")
+
+    def aplicar_descuento(self, porcentaje):
+        # el descuento debe estar entre 0 y 40, si no se rechaza
+        if porcentaje < 0 or porcentaje > 40:
+            raise ValueError("el descuento debe estar entre 0% y 40%")
+        # le quitamos al precio el porcentaje del descuento
+        descuento = self.precio * porcentaje / 100
+        return self.precio - descuento
