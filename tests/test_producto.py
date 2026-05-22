@@ -54,3 +54,23 @@ def test_no_se_puede_aplicar_descuento_negativo():
     p = Producto("libro", 10000)
     with pytest.raises(ValueError):
         p.aplicar_descuento(-5)
+
+
+# tests de la Regla 3: el precio final aplica primero el descuento y despues el IVA del 19%
+
+def test_calcular_precio_final_con_descuento_del_10_porciento():
+    # precio 10000 con descuento 10% queda en 9000 y con IVA 19% da 10710
+    p = Producto("libro", 10000)
+    assert p.calcular_precio_final(10) == 10710
+
+
+def test_calcular_precio_final_sin_descuento():
+    # sin descuento el precio queda igual y solo se le suma el IVA del 19%
+    p = Producto("libro", 10000)
+    assert p.calcular_precio_final(0) == 11900
+
+
+def test_calcular_precio_final_con_descuento_maximo():
+    # precio 10000 con 40% queda en 6000 y con IVA da 7140
+    p = Producto("libro", 10000)
+    assert p.calcular_precio_final(40) == 7140
