@@ -59,3 +59,27 @@ CP6   R2     aplicar descuento del 40%         producto creado    descuento=40  
 CP7   R2     aplicar descuento del 50%         producto creado    descuento=50                pedir aplicar el descuento       sale error, no se aplica           Negativo
 CP8   R3     calcular precio final con iva     producto creado    precio=10000 descuento=10   pedir el precio final            da 10710 (descuento y luego iva)   Positivo
 ```
+
+Reporte de cobertura
+
+Corri los tests con cobertura y dio 100%, que es mas que el 80% que pedia el parcial.
+
+```
+================================================ test session starts =================================================
+platform darwin -- Python 3.14.4, pytest-9.0.3, pluggy-1.6.0
+rootdir: /Users/samueltabares/Desktop/libreria-parcial-samuel-tabares
+plugins: cov-7.1.0
+collected 11 items
+
+tests/test_producto.py ...........                                                                             [100%]
+
+=================================================== tests coverage ===================================================
+__________________________________ coverage: platform darwin, python 3.14.4-final-0 __________________________________
+
+Name              Stmts   Miss  Cover   Missing
+-----------------------------------------------
+src/producto.py      20      0   100%
+-----------------------------------------------
+TOTAL                20      0   100%
+================================================= 11 passed in 0.04s =================================================
+```
